@@ -16,6 +16,7 @@ It is meant to act as a general reference layer that can expand into product str
 - `01-platform-overview.md`: suite-level positioning, narrative, and architecture framing.
 - `02-product-map.md`: product categories and how the apps fit together.
 - `03-core-myaide-handoff-checklist.md`: cross-repo implementation and coordination checklist.
+- `04-air-runtime-alignment.md`: AIR framing, responsibilities, and rollout phases.
 - `apps/core.md`: MyAI Core reference.
 - `apps/studio.md`: MyAI Studio reference.
 - `apps/council.md`: MyAI Council reference.
@@ -36,6 +37,7 @@ It is meant to act as a general reference layer that can expand into product str
 - personas and assistant behavior
 - org and permission model
 - app contracts and shared APIs
+- AIR runtime/event contracts and governance boundaries
 - artifact schemas
 - onboarding and training models
 - implementation roadmaps

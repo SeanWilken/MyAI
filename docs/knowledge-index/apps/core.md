@@ -30,3 +30,5 @@ Core installs the platform runtime that powers authentication, context, app cont
 ## Strategic Role
 
 Core is the non-optional foundation that makes the suite modular without making it fragmented.
+
+Core is also the canonical governance authority for AIR-style execution (identity, policy, and shared contract vocabularies), while operational runtime state is handled by app-specific layers such as MyAIDE.

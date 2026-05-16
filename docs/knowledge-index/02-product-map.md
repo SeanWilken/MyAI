@@ -19,6 +19,7 @@ The website should frame MyAI as a modular AI application suite powered by one s
 ### Development
 
 - AIDE
+- AIR Runtime (delivered through AIDE first, then reusable pattern)
 
 ### Knowledge
 
@@ -37,6 +38,7 @@ The website should frame MyAI as a modular AI application suite powered by one s
 - Foundation products define the platform and experience system.
 - Collaboration products support shared human and AI work, especially around rooms, meetings, tasks, and decisions.
 - Development products support software creation and technical reasoning.
+- AIR capabilities provide governed agent/tool orchestration for development operations.
 - Knowledge products turn messy thought into durable reference material.
 - Guided execution products turn assistance into active completion and reusable SOPs.
 - Creative experience products support narrative and visual interaction modes.
@@ -49,6 +51,7 @@ The website should frame MyAI as a modular AI application suite powered by one s
 - Council, KnowLedger, and MyAIDE consume the same policy decisions through shared contracts.
 - Council should be treated as both a collaboration surface and a producer of reusable platform knowledge.
 - Agents operate under the same principal/role model as users and remain fully auditable.
+- AIR events and diff workflows must remain observable and approval-aware by default.
 
 ## Council-Specific Framing
 

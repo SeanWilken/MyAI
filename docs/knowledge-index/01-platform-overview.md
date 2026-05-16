@@ -23,6 +23,18 @@ The platform centralizes identity, context, personas, tools, permissions, govern
 - Consistent UX across specialized frontends.
 - Reusable artifacts and cross-app knowledge flow.
 - Modular adoption without re-platforming.
+- Observable and governed agent interop by default.
+
+## AIR Runtime Direction
+
+The suite roadmap introduces AIR (Agent Interop Runtime) as a governed orchestration model:
+
+- agents, tools, and workflows interoperate through explicit contracts
+- execution emits structured events for inspection and audit
+- mutation workflows are reviewable and approval-gated where required
+- humans/admins remain final authority for safety boundaries
+
+AIR is not a replacement for Core. It is an execution pattern that relies on Core governance contracts and is initially operationalized in MyAIDE.
 
 ## Suite Pattern
 
