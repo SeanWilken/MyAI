@@ -15,6 +15,8 @@ import UXCraftPage from "./pages/platform/UXCraftPage";
 import DocsHub from "./pages/docs/DocsHub";
 import APIDocsPage from "./pages/docs/APIDocsPage";
 import AppDocsPage from "./pages/docs/AppDocsPage";
+import AideDocsPage from "./pages/docs/AideDocsPage";
+import CouncilDocsPage from "./pages/docs/CouncilDocsPage";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +29,8 @@ export const router = createBrowserRouter([
       { path: "docs", element: <DocsHub /> },
       { path: "docs/api", element: <APIDocsPage /> },
       { path: "docs/apps", element: <AppDocsPage /> },
+      { path: "docs/apps/aide", element: <AideDocsPage /> },
+      { path: "docs/apps/council", element: <CouncilDocsPage /> },
       // Application routes
       { path: "apps/council", element: <CouncilPage /> },
       { path: "apps/aide", element: <AIDEPage /> },

@@ -27,11 +27,13 @@ interface AppDocEntry {
   icon: LucideIcon;
   gradient: string;
   repoPath: string;
+  docPage?: string;
   soon?: boolean;
   docSections: {
     icon: LucideIcon;
     title: string;
     description: string;
+    sectionId?: string;
   }[];
 }
 
@@ -43,12 +45,13 @@ const APPS: AppDocEntry[] = [
     to: "/apps/council",
     icon: Users,
     gradient: "from-purple-600 to-pink-600",
-    repoPath: "seanwilken/council",
+    repoPath: "myAI-Tech/council",
+    docPage: "/docs/apps/council",
     docSections: [
-      { icon: Play, title: "Getting Started", description: "Create your first room, invite participants, and configure AI personas." },
-      { icon: Map, title: "Walkthroughs", description: "Engineering reviews, product planning sessions, research deep-dives, and more." },
-      { icon: HelpCircle, title: "FAQ", description: "Persona configuration, room permissions, WebSocket troubleshooting, and data handling." },
-      { icon: GitBranch, title: "Source & API", description: "Council repo documentation, schema reference, and extension hooks." },
+      { icon: Play, title: "Getting Started", description: "Set VITE_KAIROS_CORE_API_BASE_URL, VITE_KAIROS_TENANT_ID, and VITE_KAIROS_ORG_ID. Login, confirm org context, and open your first thread.", sectionId: "getting-started" },
+      { icon: Map, title: "Walkthroughs", description: "Suggested demo sequence: login → org switch → open Threads → direct message → persona message → create task → add document → open Meetings.", sectionId: "walkthroughs" },
+      { icon: HelpCircle, title: "FAQ", description: "Direct/user-only rooms use the /messages endpoint; persona and council rooms route via /chat. Auth flow: login → /auth/me → context switch → token refresh.", sectionId: "faq" },
+      { icon: GitBranch, title: "Source & API", description: "Council repo, Council configuration POC guide, Council usage POC walkthrough, and schema reference.", sectionId: "source" },
     ],
   },
   {
@@ -58,12 +61,13 @@ const APPS: AppDocEntry[] = [
     to: "/apps/aide",
     icon: Code2,
     gradient: "from-green-600 to-emerald-600",
-    repoPath: "seanwilken/aide",
+    repoPath: "myAI-Tech/aide",
+    docPage: "/docs/apps/aide",
     docSections: [
-      { icon: Play, title: "Getting Started", description: "Install locally or as part of the suite. Configure your AI provider, open a project, and explore the four work modes." },
-      { icon: Map, title: "Walkthroughs", description: "Context panel navigation, work mode switching, sealed modules, container environments, and Futurelog capture." },
-      { icon: HelpCircle, title: "FAQ", description: "AI provider setup, file locking, container environments, multi-repo workspaces, and context scope configuration." },
-      { icon: GitBranch, title: "Source & API", description: "AIDE repo, AIDE Server API reference, AIR handoff spec, and runtime container documentation." },
+      { icon: Play, title: "Getting Started", description: "Mode A (AIDE-only, fastest) or Mode B (AIDE + Core for AIR governance). Prerequisites: Git, Docker Desktop, Bun/Node, .NET SDK 8.", sectionId: "getting-started" },
+      { icon: Map, title: "Walkthroughs", description: "Smoke test sequence: run a terminal command, move/save a file, create and restore a snapshot, verify policy reasons with Core connected.", sectionId: "walkthroughs" },
+      { icon: HelpCircle, title: "FAQ", description: "AIDE_WORKSPACES_ROOT, AIDE_STATE_ROOT, MYAIDE_RUNTIME_EXECUTOR, MYAIDE_RUNTIME_DOTNET_IMAGE — env var reference and Core companion setup.", sectionId: "faq" },
+      { icon: GitBranch, title: "Source & API", description: "AIDE repo, AIDE Server quickstart POC guide, AIR handoff checklist, and runtime container compatibility matrix.", sectionId: "source" },
     ],
   },
   {
@@ -73,7 +77,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/knowledger",
     icon: Lightbulb,
     gradient: "from-amber-600 to-orange-600",
-    repoPath: "seanwilken/knowledger",
+    repoPath: "myAI-Tech/knowledger",
     docSections: [
       { icon: Play, title: "Getting Started", description: "Create your first knowledge graph, add nodes, and link concepts." },
       { icon: Map, title: "Walkthroughs", description: "Project architecture maps, rubber duck sessions, team knowledge bases, and cross-app references." },
@@ -88,7 +92,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/illuminate",
     icon: BookOpen,
     gradient: "from-cyan-600 to-blue-600",
-    repoPath: "seanwilken/illuminate",
+    repoPath: "myAI-Tech/illuminate",
     soon: true,
     docSections: [
       { icon: Play, title: "Getting Started", description: "Create interactive walkthroughs and guided flows for your team." },
@@ -104,7 +108,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/conjure",
     icon: Orbit,
     gradient: "from-indigo-600 to-purple-600",
-    repoPath: "seanwilken/conjure",
+    repoPath: "myAI-Tech/conjure",
     soon: true,
     docSections: [
       { icon: Play, title: "Getting Started", description: "Connect your image generation backend and run your first generation." },
@@ -120,7 +124,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/instructscription",
     icon: AudioWaveform,
     gradient: "from-rose-600 to-pink-600",
-    repoPath: "seanwilken/instructscription",
+    repoPath: "myAI-Tech/instructscription",
     soon: true,
     docSections: [
       { icon: Play, title: "Getting Started", description: "Upload audio for transcription or convert text to narrated audio." },
@@ -136,7 +140,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/iba",
     icon: Gamepad2,
     gradient: "from-orange-600 to-yellow-600",
-    repoPath: "seanwilken/iba",
+    repoPath: "myAI-Tech/iba",
     soon: true,
     docSections: [
       { icon: Play, title: "Getting Started", description: "Create your first adventure, configure the world, and start exploring." },
@@ -244,16 +248,39 @@ export default function AppDocsPage() {
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
                   {app.docSections.map((sub) => {
                     const SubIcon = sub.icon;
-                    return (
-                      <div key={sub.title} className="px-5 py-4 hover:bg-muted/30 transition-colors">
+                    const href = app.docPage && sub.sectionId
+                      ? `${app.docPage}?section=${sub.sectionId}`
+                      : sub.title === "Source & API"
+                      ? `https://github.com/${app.repoPath}`
+                      : app.to;
+                    const isExternal = !app.docPage && sub.title === "Source & API";
+                    const Inner = (
+                      <>
                         <div className="flex items-center gap-2 mb-2">
                           <SubIcon className="w-3.5 h-3.5 text-muted-foreground" />
                           <span className="text-xs font-semibold">{sub.title}</span>
+                          {!app.docPage && sub.title !== "Source & API" && (
+                            <span className="text-[9px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded ml-auto">soon</span>
+                          )}
                         </div>
                         <p className="text-xs text-muted-foreground leading-relaxed">
                           {sub.description}
                         </p>
-                      </div>
+                      </>
+                    );
+                    if (isExternal) {
+                      return (
+                        <a key={sub.title} href={href} target="_blank" rel="noreferrer"
+                          className="px-5 py-4 hover:bg-muted/30 transition-colors block group">
+                          {Inner}
+                        </a>
+                      );
+                    }
+                    return (
+                      <Link key={sub.title} to={href}
+                        className="px-5 py-4 hover:bg-muted/30 transition-colors block group">
+                        {Inner}
+                      </Link>
                     );
                   })}
                 </div>
@@ -277,9 +304,9 @@ export default function AppDocsPage() {
               <ArrowRight className="w-3.5 h-3.5" /> Get Started
             </Link>
           </div>
-          <a href="https://github.com/seanwilken" target="_blank" rel="noreferrer"
+          <a href="https://github.com/myAI-Tech" target="_blank" rel="noreferrer"
             className="text-sm text-blue-600 hover:underline flex items-center gap-1.5">
-            <GitBranch className="w-3.5 h-3.5" /> github.com/seanwilken
+            <GitBranch className="w-3.5 h-3.5" /> github.com/myAI-Tech
           </a>
         </div>
       </section>

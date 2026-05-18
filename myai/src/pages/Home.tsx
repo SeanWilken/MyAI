@@ -87,7 +87,7 @@ export default function Home() {
                 </Link>
               </motion.div>
               <motion.a
-                href="https://github.com/seanwilken"
+                href="https://github.com/myAI-Tech"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -565,7 +565,7 @@ export default function Home() {
                 </Link>
               </motion.div>
               <motion.a
-                href="https://github.com/seanwilken"
+                href="https://github.com/myAI-Tech"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.05 }}

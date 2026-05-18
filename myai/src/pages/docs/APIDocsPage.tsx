@@ -41,7 +41,7 @@ const sections: DocSectionProps[] = [
     description:
       "Complete reference for all Core API endpoints — personas, chat, context, apps, users, and more. Includes request/response schemas and examples.",
     gradient: "from-green-600 to-emerald-600",
-    topics: ["/api/personas", "/api/chat", "/api/context", "/api/apps", "/api/users", "/api/sessions"],
+    topics: ["/v1/auth/me", "/v1/context/resolve", "/v1/context/explain", "/v1/knowledge/entities/upsert", "/v1/graph/ingest-delta", "/v1/apps"],
     status: "in-progress",
   },
   {
@@ -188,13 +188,17 @@ export default function APIDocsPage() {
             <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
               Base URL
             </div>
-            <div className="font-mono text-sm bg-background border border-border/50 rounded-lg px-4 py-3 mb-4">
-              http://localhost:3000/api
-              <span className="text-muted-foreground ml-3">— default self-hosted</span>
+            <div className="font-mono text-sm bg-background border border-border/50 rounded-lg px-4 py-3 mb-3">
+              http://localhost:8000
+              <span className="text-muted-foreground ml-3">— Core default (POC / local)</span>
+            </div>
+            <div className="font-mono text-xs bg-background border border-border/50 rounded-lg px-4 py-2.5 mb-4 text-muted-foreground">
+              <span className="text-foreground/60">env: </span>VITE_KAIROS_CORE_API_BASE_URL=http://localhost:8000
             </div>
             <p className="text-sm text-muted-foreground">
-              When self-hosted, all API requests go to your own server. For cloud deployments, use your configured domain.
-              No requests are routed through myAI infrastructure.
+              Configure <code className="bg-muted px-1 py-0.5 rounded text-xs">VITE_KAIROS_CORE_API_BASE_URL</code> in your
+              client environment to point at your Core instance. All API requests go directly to your server —
+              no traffic is routed through myAI infrastructure.
             </p>
           </div>
         </div>
@@ -214,7 +218,7 @@ export default function APIDocsPage() {
               <Database className="w-3.5 h-3.5" /> Core Platform
             </Link>
           </div>
-          <a href="https://github.com/seanwilken" target="_blank" rel="noreferrer"
+          <a href="https://github.com/myAI-Tech" target="_blank" rel="noreferrer"
             className="text-sm text-blue-600 hover:underline flex items-center gap-1.5">
             <GitBranch className="w-3.5 h-3.5" /> View source on GitHub
           </a>

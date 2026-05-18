@@ -84,7 +84,7 @@ export default function KnowLedgerPage() {
                   Get Started
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-                <a href="https://github.com/seanwilken/knowledger" target="_blank" rel="noreferrer"
+                <a href="https://github.com/myAI-Tech/knowledger" target="_blank" rel="noreferrer"
                   className="border border-border px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 hover:bg-muted/50 transition-colors">
                   View on GitHub
                 </a>
@@ -221,7 +221,7 @@ export default function KnowLedgerPage() {
               <Link to="/get-started" className="bg-white text-amber-700 px-8 py-3 rounded-xl font-bold inline-flex items-center gap-2">
                 Get Started <ChevronRight className="w-4 h-4" />
               </Link>
-              <a href="https://github.com/seanwilken/knowledger" target="_blank" rel="noreferrer"
+              <a href="https://github.com/myAI-Tech/knowledger" target="_blank" rel="noreferrer"
                 className="bg-white/10 border border-white/30 text-white px-8 py-3 rounded-xl font-bold">
                 GitHub
               </a>
