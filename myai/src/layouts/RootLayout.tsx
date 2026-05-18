@@ -159,7 +159,7 @@ export default function RootLayout() {
               </p>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://github.com/seanwilken"
+                  href="https://github.com/myAI-Tech"
                   target="_blank"
                   rel="noreferrer"
                   className="text-sm text-blue-600 hover:underline"
@@ -239,7 +239,7 @@ export default function RootLayout() {
                 ))}
                 <li>
                   <a
-                    href="https://github.com/seanwilken"
+                    href="https://github.com/myAI-Tech"
                     target="_blank"
                     rel="noreferrer"
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"

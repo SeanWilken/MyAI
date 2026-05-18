@@ -166,44 +166,43 @@ export default function GetStarted() {
 
   const selectedMode = MODES.find((m) => m.id === mode)!;
 
-  const suiteInstallCmd = `# Clone the myAI monorepo
-git clone https://github.com/seanwilken/myai.git
-cd myai
+  const coreCloneCmd = `git clone https://github.com/myAI-Tech/core.git
+cd core
+bun install`;
 
-# Install dependencies
-npm install
+  const coreEnvCmd = `cp .env.example .env
+# Minimum required:
+#   MYAI_HOST=localhost
+#   MYAI_PORT=8000
+#   MYAI_SECRET=change-me
+#   DATABASE_URL=your-db-connection-string`;
 
-# Generate your environment config
-npm run setup
+  const coreRunCmd = `bun run dev`;
 
-# Launch the full suite
-npm run start:suite`;
-
-  const coreInstallCmd = `# Clone the myAI monorepo
-git clone https://github.com/seanwilken/myai.git
-cd myai
-
-# Install dependencies
-npm install
-
-# Configure which apps to enable
-npm run setup --select
-
-# Launch Core + your selected apps
-npm run start`;
-
-  const aideInstallCmd = `# Option A — Standalone (no suite needed)
-git clone https://github.com/seanwilken/aide.git
+  const aideInstallCmdA = `# Mode A — AIDE only (fastest local boot)
+git clone https://github.com/myAI-Tech/aide.git
 cd aide
-npm install
-npm run dev
 
-# Option B — Desktop app (coming soon)
-# Download from github.com/seanwilken/aide/releases
+# Install dependencies (Bun recommended)
+bun install
 
-# Option C — npm global install
-npm install -g @myai/aide
-myai-aide`;
+# Copy and edit environment file
+cp .env.example .env
+# Set: AIDE_WORKSPACES_ROOT, AIDE_STATE_ROOT
+#      MYAIDE_RUNTIME_EXECUTOR, MYAIDE_RUNTIME_DOTNET_IMAGE
+
+# Start AIDE
+bun run dev`;
+
+  const aideInstallCmdB = `# Mode B — AIDE + Core (recommended for AIR/governance)
+# 1. Start Core first (see Full Suite or Core + Select setup)
+# 2. Then in your AIDE .env, add:
+CORE_BASE_URL=http://localhost:8000
+CORE_API_KEY=your-core-api-key
+MYAIDE_CORE_POLICY_MODE=enforce   # or: log-only
+
+# 3. Start AIDE
+bun run dev`;
 
   const configEnvCmd = `# Copy the example environment file
 cp .env.example .env
@@ -362,11 +361,12 @@ docker compose --profile suite up -d`;
                     Prerequisites
                   </div>
                   <div className="space-y-2">
-                    <RequirementBadge icon={Package} label="Runtime" value="Node.js 18+" />
-                    <RequirementBadge icon={Cpu} label="RAM" value={mode === "suite" ? "4 GB min" : mode === "core" ? "2 GB min" : "1 GB min"} />
+                    <RequirementBadge icon={Package} label="Runtime" value="Bun 1.x" />
+                    <RequirementBadge icon={Cpu} label="RAM" value={mode === "suite" ? "4 GB min" : mode === "core" ? "2 GB min" : "2 GB min"} />
                     <RequirementBadge icon={HardDrive} label="Disk" value={mode === "suite" ? "2 GB" : "500 MB"} />
-                    {mode !== "aide" && (
-                      <RequirementBadge icon={Terminal} label="Docker" value="20.x+" optional />
+                    <RequirementBadge icon={Terminal} label="Docker" value="Desktop 4.x+" />
+                    {mode === "aide" && (
+                      <RequirementBadge icon={Server} label=".NET SDK" value="8.0+" />
                     )}
                   </div>
                 </div>
@@ -375,93 +375,61 @@ docker compose --profile suite up -d`;
               {/* Right — install steps */}
               <div className="lg:col-span-2">
                 <div className="space-y-0">
-                  {mode === "suite" && (
+                  {(mode === "suite" || mode === "core") && (
                     <>
-                      <Step number={1} title="Clone &amp; install dependencies">
+                      <Step number={1} title="Clone &amp; run Core">
                         <p className="text-muted-foreground text-sm mb-2">
-                          Clone the myAI monorepo and install all workspace dependencies.
+                          Core is its own repo — there is no monorepo. Clone it, configure your environment, and start the server.
                         </p>
-                        <CodeBlock code={`git clone https://github.com/seanwilken/myai.git\ncd myai\nnpm install`} />
+                        <CodeBlock code={coreCloneCmd} />
+                        <div className="mt-3">
+                          <CodeBlock code={coreEnvCmd} />
+                        </div>
+                        <div className="mt-3">
+                          <CodeBlock code={coreRunCmd} />
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-3">
+                          Core starts at{" "}
+                          <code className="bg-muted px-1 py-0.5 rounded text-xs">http://localhost:8000</code>.
+                          The setup wizard launches automatically on first run.
+                        </p>
                       </Step>
 
-                      <Step number={2} title="Configure your environment">
-                        <p className="text-muted-foreground text-sm mb-2">
-                          Copy and edit the environment file. Set your AI provider, API keys, and host settings.
+                      <Step number={2} title="Complete the setup wizard">
+                        <p className="text-muted-foreground text-sm mb-3">
+                          The wizard runs in your browser and walks you through the full configuration:
                         </p>
-                        <CodeBlock code={configEnvCmd} />
-                        <div className="mt-3 flex items-start gap-2 text-sm text-muted-foreground bg-blue-500/5 border border-blue-500/20 rounded-lg px-3 py-2.5">
+                        <ul className="space-y-2 mb-3">
+                          {[
+                            "Create your organization and admin account",
+                            "Configure your AI provider and API keys",
+                            mode === "suite"
+                              ? "Select all apps — Core pulls the frontend images automatically"
+                              : "Select which apps to enable — only those images are pulled",
+                            "Set governance defaults, persona access, and RBAC",
+                          ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="flex items-start gap-2 text-sm text-muted-foreground bg-blue-500/5 border border-blue-500/20 rounded-lg px-3 py-2.5">
                           <Info className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                           <span>
-                            myAI supports OpenAI, Anthropic, Ollama, LM Studio, and any OpenAI-compatible API.
-                            Bring your own keys — nothing is sent to myAI servers.
+                            myAI supports OpenAI, Anthropic, Ollama, and any OpenAI-compatible API.
+                            Your keys stay on your infrastructure — nothing is sent to myAI servers.
                           </span>
                         </div>
                       </Step>
 
-                      <Step number={3} title="Run the setup wizard">
-                        <p className="text-muted-foreground text-sm mb-2">
-                          The interactive setup wizard generates your database schema, admin credentials, and initial persona configuration.
-                        </p>
-                        <CodeBlock code="npm run setup" />
-                      </Step>
-
-                      <Step number={4} title="Launch the suite">
-                        <p className="text-muted-foreground text-sm mb-2">
-                          Start all services. Or use Docker Compose for a production-ready deployment.
-                        </p>
-                        <CodeBlock code="npm run start:suite" />
-                        <div className="text-xs text-muted-foreground mt-2 mb-1 font-semibold">— or with Docker —</div>
-                        <CodeBlock code={dockerCmd} />
-                      </Step>
-
-                      <Step number={5} title="Open Studio and finish setup">
+                      <Step number={3} title="Open your apps">
                         <p className="text-muted-foreground text-sm">
-                          Navigate to <code className="bg-muted px-1 py-0.5 rounded text-xs">http://localhost:3000/studio</code> to
-                          create your organization, invite users, and configure AI personas and permissions.
-                          Then open any app at <code className="bg-muted px-1 py-0.5 rounded text-xs">http://localhost:3000/&lt;app&gt;</code>.
-                        </p>
-                      </Step>
-                    </>
-                  )}
-
-                  {mode === "core" && (
-                    <>
-                      <Step number={1} title="Clone &amp; install dependencies">
-                        <p className="text-muted-foreground text-sm mb-2">
-                          Clone the monorepo. Only the packages you select will be activated.
-                        </p>
-                        <CodeBlock code={`git clone https://github.com/seanwilken/myai.git\ncd myai\nnpm install`} />
-                      </Step>
-
-                      <Step number={2} title="Configure your environment">
-                        <CodeBlock code={configEnvCmd} />
-                      </Step>
-
-                      <Step number={3} title="Select your apps and run setup">
-                        <p className="text-muted-foreground text-sm mb-2">
-                          The interactive selector lets you choose which apps to enable. Core and Studio are always required.
-                        </p>
-                        <CodeBlock code={coreInstallCmd} />
-                        <div className="mt-3 flex items-start gap-2 text-sm text-muted-foreground bg-muted/50 border border-border/50 rounded-lg px-3 py-2.5">
-                          <Info className="w-4 h-4 text-muted-foreground flex-shrink-0 mt-0.5" />
-                          <span>
-                            You can enable or disable apps at any time by editing <code className="bg-muted px-1 py-0.5 rounded text-xs">.env</code> and re-running setup. Your data is never deleted.
-                          </span>
-                        </div>
-                      </Step>
-
-                      <Step number={4} title="Launch">
-                        <CodeBlock code="npm run start" />
-                        <div className="text-xs text-muted-foreground mt-2 mb-1 font-semibold">— or with Docker —</div>
-                        <CodeBlock code={dockerCmd} />
-                      </Step>
-
-                      <Step number={5} title="Access your apps">
-                        <p className="text-muted-foreground text-sm">
-                          Studio is always at <code className="bg-muted px-1 py-0.5 rounded text-xs">http://localhost:3000/studio</code>.
-                          Enabled apps appear at their respective routes: <code className="bg-muted px-1 py-0.5 rounded text-xs">/council</code>,{" "}
-                          <code className="bg-muted px-1 py-0.5 rounded text-xs">/aide</code>,{" "}
-                          <code className="bg-muted px-1 py-0.5 rounded text-xs">/knowledger</code>.
+                          After the wizard completes, your selected apps are live. Studio is always at{" "}
+                          <code className="bg-muted px-1 py-0.5 rounded text-xs">http://localhost:8000/studio</code>.
+                          {mode === "suite"
+                            ? " All apps are available at their respective routes."
+                            : " Only apps you enabled in the wizard are available."}
                         </p>
                       </Step>
                     </>
@@ -469,32 +437,41 @@ docker compose --profile suite up -d`;
 
                   {mode === "aide" && (
                     <>
-                      <Step number={1} title="Choose your install method">
+                      <Step number={1} title="Mode A — AIDE standalone (fastest local boot)">
                         <p className="text-muted-foreground text-sm mb-2">
-                          AIDE runs standalone — no Core or suite required. Pick the method that suits you.
+                          Clone, configure, and run AIDE with no Core dependency. Policy checks run in local/degraded mode.
                         </p>
-                        <CodeBlock code={aideInstallCmd} />
-                      </Step>
-
-                      <Step number={2} title="Start AIDE">
-                        <p className="text-muted-foreground text-sm mb-2">
-                          AIDE launches in your browser. Open a folder or clone a repository to get started.
-                        </p>
-                        <CodeBlock code={`# If installed globally\nmyai-aide\n\n# Or from the cloned repo\nnpm run dev`} />
+                        <CodeBlock code={aideInstallCmdA} />
                         <p className="text-sm text-muted-foreground mt-3">
                           Opens at <code className="bg-muted px-1 py-0.5 rounded text-xs">http://localhost:4000</code> by default.
                         </p>
                       </Step>
 
+                      <Step number={2} title="(Optional) Mode B — AIDE + Core for AIR governance">
+                        <p className="text-muted-foreground text-sm mb-2">
+                          Connect AIDE to a running Core instance to enable full policy enforcement, AIR governed execution,
+                          and cross-app context. Recommended for team use.
+                        </p>
+                        <CodeBlock code={aideInstallCmdB} />
+                        <div className="mt-3 flex items-start gap-2 text-sm text-muted-foreground bg-blue-500/5 border border-blue-500/20 rounded-lg px-3 py-2.5">
+                          <Info className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
+                          <span>
+                            Start with <code className="bg-muted px-1 py-0.5 rounded text-xs">MYAIDE_CORE_POLICY_MODE=log-only</code> to
+                            observe policy decisions before switching to enforce mode.
+                          </span>
+                        </div>
+                      </Step>
+
                       <Step number={3} title="(Optional) Connect an AI provider">
                         <p className="text-muted-foreground text-sm mb-2">
-                          AIDE works as a standalone editor without AI. To enable AI features, add your provider keys:
+                          AIDE is a fully capable editor without any AI configured. To enable AI features:
                         </p>
                         <CodeBlock code={`# In AIDE settings, or via .env:\nAI_PROVIDER=openai           # openai | anthropic | ollama\nAI_API_KEY=your-key-here\n\n# For local models (Ollama):\nAI_PROVIDER=ollama\nAI_BASE_URL=http://localhost:11434`} />
                         <div className="mt-3 flex items-start gap-2 text-sm text-muted-foreground bg-green-500/5 border border-green-500/20 rounded-lg px-3 py-2.5">
                           <Info className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                           <span>
-                            AIDE is fully functional as a code editor with no AI configured. AI features are additive, not required.
+                            AI features are additive, not required. All four work modes (Code, Code Assist, Pair Program, AIDE) are
+                            available — AI involvement scales with the mode you choose.
                           </span>
                         </div>
                       </Step>

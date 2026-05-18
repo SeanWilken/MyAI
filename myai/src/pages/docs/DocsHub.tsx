@@ -155,12 +155,12 @@ export default function DocsHub() {
               </div>
             </div>
             <a
-              href="https://github.com/seanwilken"
+              href="https://github.com/myAI-Tech"
               target="_blank"
               rel="noreferrer"
               className="text-sm font-semibold text-blue-600 hover:underline whitespace-nowrap flex items-center gap-1"
             >
-              github.com/seanwilken <ArrowRight className="w-3.5 h-3.5" />
+              github.com/myAI-Tech <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>

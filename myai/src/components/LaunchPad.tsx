@@ -151,7 +151,7 @@ const APP_SECTIONS: { title: string; items: AppEntry[] }[] = [
         id: "github",
         label: "GitHub",
         descriptor: "Source code & releases",
-        href: "https://github.com/seanwilken",
+        href: "https://github.com/myAI-Tech",
         icon: GitBranch,
         gradient: "from-gray-700 to-gray-900",
       },
