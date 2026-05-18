@@ -49,3 +49,8 @@ Council lets users, teams, and AI personas collaborate in shared rooms for plann
 ## Strategic Role
 
 Council is the collaborative operating environment in MyAI for teams that want more than a private chatbot: a place where humans and personas coordinate around work, produce durable outcomes, and feed shared knowledge back into the platform.
+
+## Working POC Docs
+
+- configuration guide: `docs/knowledge-index/08-council-configuration-poc.md`
+- usage guide: `docs/knowledge-index/09-council-usage-poc.md`

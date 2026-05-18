@@ -39,6 +39,15 @@ This checklist tracks cross-repo responsibilities for the federated knowledge co
 - [ ] Define and publish baseline SLO targets for resolve/explain.
 - [ ] Create shared golden fixtures for ACL/conflict/staleness/budget tests.
 
+## AIR Interop Responsibilities
+
+- [x] Add context snapshot endpoint contract for org/team/role/app capability resolution. (`GET /v1/context/identity`)
+- [x] Add policy decision endpoint contract for resource-action checks. (`POST /v1/policy/decision`)
+- [x] Add canonical AIR event ingest endpoint and schema versioning rules. (`POST /v1/events/ingest`, `GET /v1/events`)
+- [ ] Add approval request/decision contracts usable by MyAIDE diff workflows.
+- [ ] Freeze AIR minimum event-type set and policy reason-code enums.
+- [ ] Add correlation-id propagation requirements for cross-service traces.
+
 ## Notes
 
 - This file is intentionally human-readable and mirrors the knowledge handoff model we are implementing in Core.

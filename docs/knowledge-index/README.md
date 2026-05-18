@@ -17,6 +17,11 @@ It is meant to act as a general reference layer that can expand into product str
 - `02-product-map.md`: product categories and how the apps fit together.
 - `03-core-myaide-handoff-checklist.md`: cross-repo implementation and coordination checklist.
 - `04-air-runtime-alignment.md`: AIR framing, responsibilities, and rollout phases.
+- `05-core-air-contracts.md`: draft shared contracts for policy, events, approvals, and context snapshot.
+- `06-core-studio-configuration-and-usage.md`: current POC configuration and operator usage for the Core + Studio slice.
+- `07-aide-server-quickstart-poc.md`: local evaluator quickstart for downloading and running the AIDE server POC, with optional Core companion integration.
+- `08-council-configuration-poc.md`: Council runtime configuration, API forwarding, and release checklist for Core-backed POC environments.
+- `09-council-usage-poc.md`: tester walkthrough for validating Council collaboration workflows in POC releases.
 - `apps/core.md`: MyAI Core reference.
 - `apps/studio.md`: MyAI Studio reference.
 - `apps/council.md`: MyAI Council reference.
