@@ -173,7 +173,7 @@ export default function AIDEPage() {
                   Request hosted access
                 </button>
                 <a
-                  href="https://github.com/myAI-Tech/aide"
+                  href="https://github.com/myAI-tech/aide"
                   target="_blank"
                   rel="noreferrer"
                   className="border border-border px-5 py-3 rounded-xl font-semibold inline-flex items-center gap-2 hover:bg-muted/50 transition-colors"
@@ -534,7 +534,7 @@ export default function AIDEPage() {
                 Try locally <ChevronRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://github.com/myAI-Tech/aide"
+                href="https://github.com/myAI-tech/aide"
                 target="_blank"
                 rel="noreferrer"
                 className="bg-white/10 border border-white/30 text-white px-8 py-3 rounded-xl font-bold hover:bg-white/20 transition-colors"

@@ -350,21 +350,21 @@ VITE_KAIROS_ORG_ID=org_main`} />
                 {
                   title: "Council GitHub repo",
                   desc: "Main repository — frontend workspace, room management, persona participation, tasks, documents, and meetings.",
-                  href: "https://github.com/myAI-Tech/council",
-                  label: "myAI-Tech/council",
+                  href: "https://github.com/myAI-tech/council",
+                  label: "myAI-tech/council",
                   external: true,
                 },
                 {
                   title: "Council configuration guide (POC)",
                   desc: "Minimum configuration for running Council against a local Core instance — environment variables, API forwarding modes, auth requirements, and release checklist.",
-                  href: "https://github.com/myAI-Tech/council/blob/main/docs/knowledge-index/08-council-configuration-poc.md",
+                  href: "https://github.com/myAI-tech/council/blob/main/docs/knowledge-index/08-council-configuration-poc.md",
                   label: "08-council-configuration-poc.md",
                   external: true,
                 },
                 {
                   title: "Council usage walkthrough (POC)",
                   desc: "Tester-facing walkthrough for validating the Council collaboration experience — all tester flows, suggested demo sequence, and feedback template.",
-                  href: "https://github.com/myAI-Tech/council/blob/main/docs/knowledge-index/09-council-usage-poc.md",
+                  href: "https://github.com/myAI-tech/council/blob/main/docs/knowledge-index/09-council-usage-poc.md",
                   label: "09-council-usage-poc.md",
                   external: true,
                 },
@@ -414,9 +414,9 @@ VITE_KAIROS_ORG_ID=org_main`} />
               <ArrowRight className="w-3.5 h-3.5" /> Get Started
             </Link>
           </div>
-          <a href="https://github.com/myAI-Tech/council" target="_blank" rel="noreferrer"
+          <a href="https://github.com/myAI-tech/council" target="_blank" rel="noreferrer"
             className="text-sm text-blue-600 hover:underline flex items-center gap-1.5">
-            <GitBranch className="w-3.5 h-3.5" /> myAI-Tech/council
+            <GitBranch className="w-3.5 h-3.5" /> myAI-tech/council
           </a>
         </div>
       </section>

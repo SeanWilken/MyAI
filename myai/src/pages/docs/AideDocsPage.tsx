@@ -150,7 +150,7 @@ export default function AideDocsPage() {
               <p className="text-sm text-muted-foreground mb-4">
                 No Core required. Policy checks run in local/degraded mode. Best for solo use and initial evaluation.
               </p>
-              <CodeBlock code={`git clone https://github.com/myAI-Tech/aide.git
+              <CodeBlock code={`git clone https://github.com/myAI-tech/aide.git
 cd aide
 bun install
 
@@ -346,21 +346,21 @@ bun run dev`} />
                 {
                   title: "AIDE GitHub repo",
                   desc: "Main repository — editor, runtime, context panel, work modes, and AIDE Server.",
-                  href: "https://github.com/myAI-Tech/aide",
-                  label: "myAI-Tech/aide",
+                  href: "https://github.com/myAI-tech/aide",
+                  label: "myAI-tech/aide",
                   external: true,
                 },
                 {
                   title: "AIDE Server quickstart (POC)",
                   desc: "Step-by-step guide for running the AIDE Server POC locally — Mode A and Mode B setup, smoke test sequence, and roadmap.",
-                  href: "https://github.com/myAI-Tech/aide/blob/main/docs/knowledge-index/07-aide-server-quickstart-poc.md",
+                  href: "https://github.com/myAI-tech/aide/blob/main/docs/knowledge-index/07-aide-server-quickstart-poc.md",
                   label: "07-aide-server-quickstart-poc.md",
                   external: true,
                 },
                 {
                   title: "AIR handoff checklist",
                   desc: "Cross-repo responsibilities for the federated knowledge contract — Core endpoints, AIDE adapter flow, dual-read mode, and shared pending items.",
-                  href: "https://github.com/myAI-Tech/aide/blob/main/docs/knowledge-index/03-core-myaide-handoff-checklist.md",
+                  href: "https://github.com/myAI-tech/aide/blob/main/docs/knowledge-index/03-core-myaide-handoff-checklist.md",
                   label: "03-core-myaide-handoff-checklist.md",
                   external: true,
                 },
@@ -410,9 +410,9 @@ bun run dev`} />
               <ArrowRight className="w-3.5 h-3.5" /> Get Started
             </Link>
           </div>
-          <a href="https://github.com/myAI-Tech/aide" target="_blank" rel="noreferrer"
+          <a href="https://github.com/myAI-tech/aide" target="_blank" rel="noreferrer"
             className="text-sm text-blue-600 hover:underline flex items-center gap-1.5">
-            <GitBranch className="w-3.5 h-3.5" /> myAI-Tech/aide
+            <GitBranch className="w-3.5 h-3.5" /> myAI-tech/aide
           </a>
         </div>
       </section>

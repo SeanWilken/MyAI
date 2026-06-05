@@ -218,7 +218,7 @@ export default function APIDocsPage() {
               <Database className="w-3.5 h-3.5" /> Core Platform
             </Link>
           </div>
-          <a href="https://github.com/myAI-Tech" target="_blank" rel="noreferrer"
+          <a href="https://github.com/myAI-tech" target="_blank" rel="noreferrer"
             className="text-sm text-blue-600 hover:underline flex items-center gap-1.5">
             <GitBranch className="w-3.5 h-3.5" /> View source on GitHub
           </a>

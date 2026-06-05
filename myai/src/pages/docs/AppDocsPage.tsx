@@ -45,7 +45,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/council",
     icon: Users,
     gradient: "from-purple-600 to-pink-600",
-    repoPath: "myAI-Tech/council",
+    repoPath: "myAI-tech/council",
     docPage: "/docs/apps/council",
     docSections: [
       { icon: Play, title: "Getting Started", description: "Set VITE_KAIROS_CORE_API_BASE_URL, VITE_KAIROS_TENANT_ID, and VITE_KAIROS_ORG_ID. Login, confirm org context, and open your first thread.", sectionId: "getting-started" },
@@ -61,7 +61,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/aide",
     icon: Code2,
     gradient: "from-green-600 to-emerald-600",
-    repoPath: "myAI-Tech/aide",
+    repoPath: "myAI-tech/aide",
     docPage: "/docs/apps/aide",
     docSections: [
       { icon: Play, title: "Getting Started", description: "Mode A (AIDE-only, fastest) or Mode B (AIDE + Core for AIR governance). Prerequisites: Git, Docker Desktop, Bun/Node, .NET SDK 8.", sectionId: "getting-started" },
@@ -77,7 +77,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/knowledger",
     icon: Lightbulb,
     gradient: "from-amber-600 to-orange-600",
-    repoPath: "myAI-Tech/knowledger",
+    repoPath: "myAI-tech/knowledger",
     docSections: [
       { icon: Play, title: "Getting Started", description: "Create your first knowledge graph, add nodes, and link concepts." },
       { icon: Map, title: "Walkthroughs", description: "Project architecture maps, rubber duck sessions, team knowledge bases, and cross-app references." },
@@ -92,7 +92,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/illuminate",
     icon: BookOpen,
     gradient: "from-cyan-600 to-blue-600",
-    repoPath: "myAI-Tech/illuminate",
+    repoPath: "myAI-tech/illuminate",
     soon: true,
     docSections: [
       { icon: Play, title: "Getting Started", description: "Create interactive walkthroughs and guided flows for your team." },
@@ -108,7 +108,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/conjure",
     icon: Orbit,
     gradient: "from-indigo-600 to-purple-600",
-    repoPath: "myAI-Tech/conjure",
+    repoPath: "myAI-tech/conjure",
     soon: true,
     docSections: [
       { icon: Play, title: "Getting Started", description: "Connect your image generation backend and run your first generation." },
@@ -124,7 +124,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/instructscription",
     icon: AudioWaveform,
     gradient: "from-rose-600 to-pink-600",
-    repoPath: "myAI-Tech/instructscription",
+    repoPath: "myAI-tech/instructscription",
     soon: true,
     docSections: [
       { icon: Play, title: "Getting Started", description: "Upload audio for transcription or convert text to narrated audio." },
@@ -140,7 +140,7 @@ const APPS: AppDocEntry[] = [
     to: "/apps/iba",
     icon: Gamepad2,
     gradient: "from-orange-600 to-yellow-600",
-    repoPath: "myAI-Tech/iba",
+    repoPath: "myAI-tech/iba",
     soon: true,
     docSections: [
       { icon: Play, title: "Getting Started", description: "Create your first adventure, configure the world, and start exploring." },
@@ -304,9 +304,9 @@ export default function AppDocsPage() {
               <ArrowRight className="w-3.5 h-3.5" /> Get Started
             </Link>
           </div>
-          <a href="https://github.com/myAI-Tech" target="_blank" rel="noreferrer"
+          <a href="https://github.com/myAI-tech" target="_blank" rel="noreferrer"
             className="text-sm text-blue-600 hover:underline flex items-center gap-1.5">
-            <GitBranch className="w-3.5 h-3.5" /> github.com/myAI-Tech
+            <GitBranch className="w-3.5 h-3.5" /> github.com/myAI-tech
           </a>
         </div>
       </section>

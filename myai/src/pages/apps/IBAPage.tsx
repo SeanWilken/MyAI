@@ -38,7 +38,7 @@ export default function IBAPage() {
               <Link to="/get-started" className="bg-gradient-to-r from-orange-600 to-yellow-600 text-white px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 hover:opacity-90">
                 Get Notified at Launch <ArrowRight className="w-4 h-4" />
               </Link>
-              <a href="https://github.com/myAI-Tech" target="_blank" rel="noreferrer"
+              <a href="https://github.com/myAI-tech" target="_blank" rel="noreferrer"
                 className="border border-border px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 hover:bg-muted/50 transition-colors">
                 Follow on GitHub
               </a>

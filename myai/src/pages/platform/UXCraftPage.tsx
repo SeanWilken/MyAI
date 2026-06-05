@@ -38,7 +38,7 @@ export default function UXCraftPage() {
               <Link to="/get-started" className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 hover:opacity-90">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
-              <a href="https://github.com/myAI-Tech/ux-craft" target="_blank" rel="noreferrer"
+              <a href="https://github.com/myAI-tech/ux-craft" target="_blank" rel="noreferrer"
                 className="border border-border px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 hover:bg-muted/50 transition-colors">
                 View on GitHub
               </a>

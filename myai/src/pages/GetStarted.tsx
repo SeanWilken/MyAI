@@ -3,7 +3,6 @@ import type { ElementType, ReactNode } from "react";
 import { Link } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Flower,
   Code2,
   Database,
   Settings,
@@ -166,7 +165,7 @@ export default function GetStarted() {
 
   const selectedMode = MODES.find((m) => m.id === mode)!;
 
-  const coreCloneCmd = `git clone https://github.com/myAI-Tech/core.git
+  const coreCloneCmd = `git clone https://github.com/myAI-tech/core.git
 cd core
 bun install`;
 
@@ -180,7 +179,7 @@ bun install`;
   const coreRunCmd = `bun run dev`;
 
   const aideInstallCmdA = `# Mode A — AIDE only (fastest local boot)
-git clone https://github.com/myAI-Tech/aide.git
+git clone https://github.com/myAI-tech/aide.git
 cd aide
 
 # Install dependencies (Bun recommended)
@@ -231,7 +230,7 @@ docker compose --profile suite up -d`;
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 px-4 py-2 rounded-full mb-6">
-              <Flower className="w-4 h-4 text-green-600" />
+              <img src="/myAI.svg" alt="myAI" className="w-4 h-4 rounded" />
               <span className="text-sm font-semibold text-green-600">Free &amp; Open-Source</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
