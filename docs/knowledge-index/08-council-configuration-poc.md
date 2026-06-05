@@ -56,12 +56,15 @@ Operator expectations:
 
 ## Channel and Chat Expectations
 
-Current send behavior should remain endpoint-aware by channel type:
+Current send behavior should be realtime-first:
+
+- primary path: websocket `chat.send` over `/v1/realtime/ws`
+- fallback path when WS is unavailable: HTTP endpoints by channel type
 
 - direct/user-only channels: `POST /v1/studio/channels/{channel_id}/messages`
 - persona/council channels: `POST /v1/studio/channels/{channel_id}/chat`
 
-For POC validation, verify both paths in browser network traces.
+For POC validation, verify WS connect + send first, then confirm HTTP fallback only appears when websocket is unavailable.
 
 ## POC Image Packaging Notes
 
@@ -71,6 +74,14 @@ For an initial downloadable Core + Council option:
 - default Council API base to the co-packaged Core service URL
 - include a startup banner or README note with explicit exposed ports
 - keep secrets externalized (env file, injected runtime vars, or orchestrator secret store)
+
+Recommended container pattern:
+
+- Council image serves static frontend with nginx.
+- nginx proxies `/api` to Core using runtime upstream env (for example `KAIROS_CORE_UPSTREAM=http://kairos-core-api:8000`).
+- Council container joins the external Docker network created by Core installation (for example `kairos-stack_default`) and may also attach to a local bridge network (for example `myaide-internal`) for app-local dependencies.
+
+This keeps browser requests same-origin while still allowing install-order flexibility (Core first, frontends later).
 
 ## Release Checklist (Configuration)
 

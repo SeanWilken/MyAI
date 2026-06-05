@@ -22,6 +22,7 @@ It is meant to act as a general reference layer that can expand into product str
 - `07-aide-server-quickstart-poc.md`: local evaluator quickstart for downloading and running the AIDE server POC, with optional Core companion integration.
 - `08-council-configuration-poc.md`: Council runtime configuration, API forwarding, and release checklist for Core-backed POC environments.
 - `09-council-usage-poc.md`: tester walkthrough for validating Council collaboration workflows in POC releases.
+- `10-poc-release-and-deployment-notes.md`: POC readiness checklist plus container/deployment recommendations.
 - `apps/core.md`: MyAI Core reference.
 - `apps/studio.md`: MyAI Studio reference.
 - `apps/council.md`: MyAI Council reference.

@@ -44,13 +44,15 @@ Expected result:
 
 ### 3) Send Messages by Room Type
 
+- confirm websocket is connected for the active room
 - in a direct/user room, send a test message
 - in a persona/council room, send a test message
 
 Expected result:
 
-- direct message send succeeds through `/messages`
-- persona/council message send succeeds through `/chat`
+- primary send uses websocket `chat.send` and room events update the thread
+- if websocket is unavailable, direct message send falls back through `/messages`
+- if websocket is unavailable, persona/council send falls back through `/chat`
 
 If failures occur, capture:
 
