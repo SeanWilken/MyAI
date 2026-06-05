@@ -28,42 +28,42 @@ myAI takes a different approach. The **Core** platform centralizes identity, con
 
 | Product | Description | Repo |
 |---|---|---|
-| **Core** | The API backbone — identity, context, orchestration, tools, policy, app contracts, and federated knowledge. Every other product depends on Core. | [myAI-Tech/core](https://github.com/myAI-Tech/core) |
-| **Studio** | The admin and governance control plane — manage users, teams, orgs, personas, RBAC, access grants, and policy templates. | [myAI-Tech/studio](https://github.com/myAI-Tech/studio) |
-| **UX Craft** | The shared design system and experience layer that keeps the suite visually and behaviorally coherent across all frontends. | [myAI-Tech/ux-craft](https://github.com/myAI-Tech/ux-craft) |
+| **Core** | The API backbone — identity, context, orchestration, tools, policy, app contracts, and federated knowledge. Every other product depends on Core. | [myAI-tech/core](https://github.com/myAI-tech/core) |
+| **Studio** | The admin and governance control plane — manage users, teams, orgs, personas, RBAC, access grants, and policy templates. | [myAI-tech/studio](https://github.com/myAI-tech/studio) |
+| **UX Craft** | The shared design system and experience layer that keeps the suite visually and behaviorally coherent across all frontends. | [myAI-tech/ux-craft](https://github.com/myAI-tech/ux-craft) |
 
 ### Collaboration
 
 | Product | Description | Repo |
 |---|---|---|
-| **Council** | Shared workspaces where humans and AI personas think, plan, and work together. Persistent rooms, multi-persona discussions, tasks, documents, meetings, and federated knowledge handoff. | [myAI-Tech/council](https://github.com/myAI-Tech/council) |
+| **Council** | Shared workspaces where humans and AI personas think, plan, and work together. Persistent rooms, multi-persona discussions, tasks, documents, meetings, and federated knowledge handoff. | [myAI-tech/council](https://github.com/myAI-tech/council) |
 
 ### Development
 
 | Product | Description | Repo |
 |---|---|---|
-| **AIDE** | An AI-native developer environment for planning, building, validating, and evolving software across local and hosted runtimes. Four work modes (Code, Code Assist, Pair Program, AIDE), live context panel, reproducible execution containers, and file-level governance. | [myAI-Tech/aide](https://github.com/myAI-Tech/aide) |
+| **AIDE** | An AI-native developer environment for planning, building, validating, and evolving software across local and hosted runtimes. Four work modes (Code, Code Assist, Pair Program, AIDE), live context panel, reproducible execution containers, and file-level governance. | [myAI-tech/aide](https://github.com/myAI-tech/aide) |
 | **AIR Runtime** | Agent Interop Runtime — the governed orchestration model for agents, tools, and workflows. Contracts are explicit, execution emits structured events, mutations are approval-gated, and humans remain the final authority. Delivered first through AIDE. | Integrated in AIDE |
 
 ### Knowledge
 
 | Product | Description | Repo |
 |---|---|---|
-| **KnowLedger** | A visual knowledge graph for capturing, structuring, and connecting ideas. Turns notes, concepts, and relationships into durable, AI-readable knowledge shared across the suite. | [myAI-Tech/knowledger](https://github.com/myAI-Tech/knowledger) |
+| **KnowLedger** | A visual knowledge graph for capturing, structuring, and connecting ideas. Turns notes, concepts, and relationships into durable, AI-readable knowledge shared across the suite. | [myAI-tech/knowledger](https://github.com/myAI-tech/knowledger) |
 
 ### Guided Execution
 
 | Product | Description | Repo |
 |---|---|---|
-| **Illuminate** | Guided workflows and SOPs — turn completed work into reusable, interactive walkthroughs. Authoring, progress tracking, branching flows, and export. | [myAI-Tech/illuminate](https://github.com/myAI-Tech/illuminate) |
+| **Illuminate** | Guided workflows and SOPs — turn completed work into reusable, interactive walkthroughs. Authoring, progress tracking, branching flows, and export. | [myAI-tech/illuminate](https://github.com/myAI-tech/illuminate) |
 
 ### Creative Experiences
 
 | Product | Description | Repo |
 |---|---|---|
-| **Image Based Adventures (IBA)** | AI-powered interactive story adventures — branching narratives, character persistence, and image generation integrated into every scene. | [myAI-Tech/iba](https://github.com/myAI-Tech/iba) |
-| **Conjure** | AI image and video generation — brand-consistent generation, batch workflows, and domain grounding. *(Coming soon)* | [myAI-Tech/conjure](https://github.com/myAI-Tech/conjure) |
-| **Instructscription** | Audio transcription and synthesis — convert audio to text or text to narrated audio. Podcast generation, meeting transcription, and persona voice tuning. *(Coming soon)* | [myAI-Tech/instructscription](https://github.com/myAI-Tech/instructscription) |
+| **Image Based Adventures (IBA)** | AI-powered interactive story adventures — branching narratives, character persistence, and image generation integrated into every scene. | [myAI-tech/iba](https://github.com/myAI-tech/iba) |
+| **Conjure** | AI image and video generation — brand-consistent generation, batch workflows, and domain grounding. *(Coming soon)* | [myAI-tech/conjure](https://github.com/myAI-tech/conjure) |
+| **Instructscription** | Audio transcription and synthesis — convert audio to text or text to narrated audio. Podcast generation, meeting transcription, and persona voice tuning. *(Coming soon)* | [myAI-tech/instructscription](https://github.com/myAI-tech/instructscription) |
 
 ---
 
@@ -95,7 +95,7 @@ Apps are installed as separate frontend images, selected and pulled through Core
 ### 1. Run Core
 
 ```bash
-git clone https://github.com/myAI-Tech/core.git
+git clone https://github.com/myAI-tech/core.git
 cd core
 bun install
 cp .env.example .env   # configure MYAI_HOST, MYAI_PORT, MYAI_SECRET, DATABASE_URL
@@ -117,7 +117,7 @@ The wizard walks you through:
 AIDE can run without Core for local-only development:
 
 ```bash
-git clone https://github.com/myAI-Tech/aide.git
+git clone https://github.com/myAI-tech/aide.git
 cd aide
 bun install
 cp .env.example .env   # set AIDE_WORKSPACES_ROOT, AIDE_STATE_ROOT, MYAIDE_RUNTIME_EXECUTOR
@@ -178,21 +178,17 @@ myAI/
 
 ---
 
-## Packages
+## Packages & Organizations
 
-| Registry | Scope |
+| Platform | Scope / Handle |
 |---|---|
-| npm | `@myai-tech/*` |
-| NuGet | `myai-tech` |
+| GitHub | [`myAI-tech`](https://github.com/myAI-tech) |
+| Docker Hub | [`myai-tech`](https://hub.docker.com/u/myai-tech) |
+| npm | [`@myai-tech`](https://www.npmjs.com/org/myai-tech) |
+| NuGet | [`myai-tech`](https://www.nuget.org/profiles/myai-tech) |
 
 ---
 
 ## License
 
 MIT — free to use, self-host, fork, and extend.
-
----
-
-## GitHub Organization
-
-All repositories live at [github.com/myAI-Tech](https://github.com/myAI-Tech).

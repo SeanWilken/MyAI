@@ -112,7 +112,7 @@ export default function CouncilPage() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
-                  href="https://github.com/myAI-Tech/council"
+                  href="https://github.com/myAI-tech/council"
                   target="_blank"
                   rel="noreferrer"
                   className="border border-border px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 hover:bg-muted/50 transition-colors"
@@ -254,7 +254,7 @@ export default function CouncilPage() {
               <Link to="/get-started" className="bg-white text-purple-600 px-8 py-3 rounded-xl font-bold inline-flex items-center gap-2 hover:opacity-90">
                 Get Started Free <ChevronRight className="w-4 h-4" />
               </Link>
-              <a href="https://github.com/myAI-Tech/council" target="_blank" rel="noreferrer"
+              <a href="https://github.com/myAI-tech/council" target="_blank" rel="noreferrer"
                 className="bg-white/10 border border-white/30 text-white px-8 py-3 rounded-xl font-bold">
                 GitHub
               </a>

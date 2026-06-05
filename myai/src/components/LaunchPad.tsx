@@ -13,10 +13,10 @@ import {
   Database,
   Settings,
   Palette,
-  Flower,
   GitBranch,
   BookMarked,
   Zap,
+  Box,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -151,9 +151,17 @@ const APP_SECTIONS: { title: string; items: AppEntry[] }[] = [
         id: "github",
         label: "GitHub",
         descriptor: "Source code & releases",
-        href: "https://github.com/myAI-Tech",
+        href: "https://github.com/myAI-tech",
         icon: GitBranch,
         gradient: "from-gray-700 to-gray-900",
+      },
+      {
+        id: "docker",
+        label: "Docker Hub",
+        descriptor: "Container images",
+        href: "https://hub.docker.com/u/myai-tech",
+        icon: Box,
+        gradient: "from-blue-500 to-cyan-600",
       },
     ],
   },
@@ -233,9 +241,7 @@ export function LaunchPad({ isOpen, onClose }: LaunchPadProps) {
               {/* Header bar */}
               <div className="flex items-center justify-between px-6 py-5 max-w-4xl mx-auto w-full">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow">
-                    <Flower className="w-4 h-4 text-white" />
-                  </div>
+                  <img src="/myAI.svg" alt="myAI" className="w-8 h-8 rounded-lg shadow" />
                   <span className="text-sm font-semibold text-muted-foreground">myAI</span>
                 </div>
 

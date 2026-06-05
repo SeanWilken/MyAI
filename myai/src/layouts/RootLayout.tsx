@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, Outlet, ScrollRestoration } from "react-router";
 import { motion } from "motion/react";
-import { Flower, Database, LayoutGrid } from "lucide-react";
+import { Database, LayoutGrid } from "lucide-react";
 import { LaunchPad } from "../components/LaunchPad";
 
 export default function RootLayout() {
@@ -29,9 +29,7 @@ export default function RootLayout() {
                 className="relative w-10 h-10"
                 whileHover={{ scale: 1.1, rotate: 5 }}
               >
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg">
-                  <Flower className="w-6 h-6 text-white" />
-                </div>
+                <img src="/myAI.svg" alt="myAI" className="w-10 h-10 rounded-lg shadow-lg" />
               </motion.div>
               <span className="text-lg font-semibold">myAI</span>
             </Link>
@@ -157,14 +155,22 @@ export default function RootLayout() {
               <p className="text-sm text-muted-foreground mb-4">
                 Free and open-source modular AI application ecosystem. Your data, your infrastructure.
               </p>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <a
-                  href="https://github.com/myAI-Tech"
+                  href="https://github.com/myAI-tech"
                   target="_blank"
                   rel="noreferrer"
                   className="text-sm text-blue-600 hover:underline"
                 >
                   GitHub →
+                </a>
+                <a
+                  href="https://hub.docker.com/u/myai-tech"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-blue-600 hover:underline"
+                >
+                  Docker →
                 </a>
                 <button
                   onClick={() => setLaunchPadOpen(true)}
@@ -239,7 +245,7 @@ export default function RootLayout() {
                 ))}
                 <li>
                   <a
-                    href="https://github.com/myAI-Tech"
+                    href="https://github.com/myAI-tech"
                     target="_blank"
                     rel="noreferrer"
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"

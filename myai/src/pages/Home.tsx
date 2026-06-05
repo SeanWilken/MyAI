@@ -6,7 +6,6 @@ import { CouncilPreview } from "../components/CouncilPreview";
 import { KnowLedgerPreview } from "../components/KnowLedge";
 import { FeatureComparison } from "../components/FeatureComparison";
 import {
-  Flower,
   Database,
   Settings,
   Orbit,
@@ -87,7 +86,7 @@ export default function Home() {
                 </Link>
               </motion.div>
               <motion.a
-                href="https://github.com/myAI-Tech"
+                href="https://github.com/myAI-tech"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -565,7 +564,7 @@ export default function Home() {
                 </Link>
               </motion.div>
               <motion.a
-                href="https://github.com/myAI-Tech"
+                href="https://github.com/myAI-tech"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.05 }}

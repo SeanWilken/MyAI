@@ -15,7 +15,6 @@ import {
   Orbit,
   AudioWaveform,
   Gamepad2,
-  Flower,
 } from "lucide-react";
 
 const sections = [
@@ -60,7 +59,7 @@ export default function DocsHub() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="inline-flex items-center gap-2 bg-slate-500/10 border border-slate-500/20 px-3 py-1.5 rounded-full mb-5">
-              <Flower className="w-4 h-4 text-slate-600" />
+              <img src="/myAI.svg" alt="myAI" className="w-4 h-4 rounded" />
               <span className="text-sm font-semibold text-slate-600">myAI Documentation</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -155,12 +154,12 @@ export default function DocsHub() {
               </div>
             </div>
             <a
-              href="https://github.com/myAI-Tech"
+              href="https://github.com/myAI-tech"
               target="_blank"
               rel="noreferrer"
               className="text-sm font-semibold text-blue-600 hover:underline whitespace-nowrap flex items-center gap-1"
             >
-              github.com/myAI-Tech <ArrowRight className="w-3.5 h-3.5" />
+              github.com/myAI-tech <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
